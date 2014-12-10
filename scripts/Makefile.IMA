@@ -172,6 +172,9 @@ lib-y:=
 include libbb/Kbuild
 lib-all-y += $(patsubst %,libbb/%,$(sort $(lib-y)))
 lib-y:=
+include dios/Kbuild
+lib-all-y += $(patsubst %,dios/%,$(sort $(lib-y)))
+lib-y:=
 
 comma:=,
 busybox_unstripped.o: $(usage_stuff) include/applet_tables.h include/NUM_APPLETS.h include/autoconf.h

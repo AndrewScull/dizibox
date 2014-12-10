@@ -108,6 +108,10 @@ CFLAGS += $(strip $(subst ",,$(CONFIG_EXTRA_CFLAGS)))
 #"))
 endif
 
+ifeq ($(CONFIG_DIOS_EXEC),y)
+CFLAGS += -Dexecve=dizi_execve -Dexecl=dizi_execl -Dexecle=dizi_execle -Dexecv=dizi_execv -Dexecvp=dizi_execvp -Dexeclp=dizi_execlp
+endif
+
 # Note: both "" (string consisting of two quote chars) and empty string
 # are possible, and should be skipped below.
 ifneq ($(subst "",,$(CONFIG_SYSROOT)),)

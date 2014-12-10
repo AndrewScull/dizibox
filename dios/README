@@ -1,0 +1,14 @@
+DiziBox is a port/hack of BusyBox onto DIOS. DiziBox itself runs as a legacy
+application using legacy syscalls but is capable of launching DIOS tasks where
+appropriate.
+
+The way this is achieved at the moemnt is by hijacking the exec() family of
+functions and implementing them in a way that is DIOS friendly. This can be seen
+in dios/exec.c
+
+make dios_defconfig
+make menuconfig
+# select BusyBox Settings
+#  then Build Options
+#   then Additional CFLAGS
+#    add include path for <shared/*> headers

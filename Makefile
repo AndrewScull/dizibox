@@ -470,6 +470,7 @@ libs-y		:= \
 		coreutils/ \
 		coreutils/libcoreutils/ \
 		debianutils/ \
+        dios/ \
 		e2fsprogs/ \
 		editors/ \
 		findutils/ \
@@ -529,7 +530,7 @@ endif
 # command line.
 # This allow a user to issue only 'make' to build a kernel including modules
 # Defaults busybox but it is usually overridden in the arch makefile
-all: busybox doc
+all: dizibox busybox doc
 
 -include $(srctree)/arch/$(ARCH)/Makefile
 
@@ -725,6 +726,9 @@ else
 # strip is confused by PIE executable and does not set exec bits
 	$(Q)chmod a+x $@
 endif
+
+dizibox: busybox
+	$(Q)cp $< $@
 
 # The actual objects are generated when descending,
 # make sure no implicit rule kicks in
